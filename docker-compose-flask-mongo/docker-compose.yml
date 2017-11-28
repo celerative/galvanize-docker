@@ -1,0 +1,14 @@
+version: '2'
+services:
+
+  flask:
+    build: flaskapp
+    ports:
+      - 8080:80
+    links:
+      - database
+
+  database:
+    image: mongo
+    volumes:
+      - ./volume-mongodb:/data/db
